@@ -7,6 +7,7 @@
     'OrcheStars · về đầu trang': 'OrcheStars · back to top',
     'Điều hướng chính': 'Main navigation',
     'Điều hướng các mục': 'Section navigation',
+    'Xem thêm': 'Read more', 'Thu gọn': 'Show less',
     'Vở diễn': 'The ballet', 'Hạng vé': 'Tickets', 'Chương trình': 'Programme',
     'Nghệ sĩ': 'Artists', 'Địa điểm': 'Venue', 'Hỏi đáp': 'FAQs',
     'Mua vé': 'Buy tickets', 'Nhà Hát Hòa Bình': 'Hoa Binh Theatre',

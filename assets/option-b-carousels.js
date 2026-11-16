@@ -20,9 +20,6 @@
       dots.appendChild(button);
       return button;
     });
-    var toggle = document.createElement('button');
-    toggle.type = 'button'; toggle.className = 'carousel-toggle';
-    toggle.setAttribute('aria-controls', track.id);
     function arrow(direction) {
       var button = document.createElement('button');
       button.type = 'button'; button.className = 'carousel-arrow';
@@ -34,15 +31,15 @@
       return button;
     }
     controls.appendChild(arrow(-1)); controls.appendChild(dots);
-    controls.appendChild(arrow(1)); controls.appendChild(toggle);
+    controls.appendChild(arrow(1));
     track.insertAdjacentElement('afterend', controls);
     track.setAttribute('role', 'region');
-    var index = 0, pending = false, visible = false, interacting = false, focused = false, paused = false;
+    var index = 0, pending = false, visible = false, interacting = false, focused = false;
     var timer = 0, scrollTimer = 0;
     var interval = track.id === 'artist-carousel' ? 6500 : 5000;
     function schedule() {
       clearTimeout(timer);
-      if (mobile.matches && !reduced.matches && visible && !document.hidden && !interacting && !focused && !paused) {
+      if (mobile.matches && !reduced.matches && visible && !document.hidden && !interacting && !focused) {
         timer = setTimeout(function () { go((index + 1) % slides.length); }, interval);
       }
     }
@@ -64,19 +61,6 @@
       track.scrollTo({left:offset(slides[target]), behavior:reduced.matches ? 'instant' : 'smooth'});
       schedule();
     }
-    function toggleState() {
-      var enabled = !paused && !reduced.matches;
-      toggle.disabled = reduced.matches;
-      toggle.setAttribute('aria-label', enabled ? 'Tạm dừng tự chuyển' : 'Bật tự chuyển');
-      toggle.setAttribute('aria-pressed', String(enabled));
-      toggle.innerHTML = '<svg viewBox="0 0 20 20" aria-hidden="true">' + (enabled ? '<path d="M7 5v10M13 5v10"/>' : '<path d="m7 4 9 6-9 6z"/>') + '</svg>';
-      schedule();
-    }
-    toggle.addEventListener('click', function () {
-      paused = !paused;
-      if (!paused) focused = false;
-      toggleState();
-    });
     track.addEventListener('scroll', function () {
       clearTimeout(timer); clearTimeout(scrollTimer);
       if (!pending) { pending = true; requestAnimationFrame(update); }
@@ -116,8 +100,8 @@
     }, {threshold:[0,.4]}).observe(track);
     document.addEventListener('visibilitychange', schedule);
     mobile.addEventListener('change', resize);
-    reduced.addEventListener('change', toggleState);
+    reduced.addEventListener('change', schedule);
     addEventListener('resize', resize, {passive:true});
-    toggleState(); resize();
+    resize();
   });
 })();

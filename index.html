@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400&display=swap" rel="stylesheet">
 <style>
 :root{
   --night:#0A1328; --navy:#101D3A; --navy-3:#18294D;
@@ -23,6 +24,7 @@
   --serif:"Playfair Display", Georgia, serif;
   --sans:"Be Vietnam Pro", system-ui, -apple-system, Arial, sans-serif;
   --wrap:1200px;
+  --nav-gutter:clamp(16px,4vw,48px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -68,7 +70,7 @@ strong,b{font-weight:600}
 /* header */
 .hdr{position:fixed;inset:0 0 auto;z-index:50;background:rgba(10,19,40,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--hair);transition:padding .35s;padding:18px 0}
 .hdr.is-scrolled{padding:10px 0}
-.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.hdr .wrap{width:min(var(--wrap),100% - 2 * var(--nav-gutter));display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand img{height:24px;width:auto}
 .nav{display:flex;gap:28px}
 .nav a{font-size:13px;letter-spacing:.06em;text-decoration:none;color:var(--dim);position:relative;padding:6px 0;transition:color .2s}
@@ -119,9 +121,16 @@ strong,b{font-weight:600}
 /* 01 about */
 .quote{font:italic 500 clamp(26px,3.2vw,42px)/1.3 var(--serif);max-width:24ch;margin:26px auto 0;color:var(--ink)}
 .quote span{color:var(--velvet)}
-.story{columns:2 320px;column-gap:56px;margin:56px auto 0;max-width:980px;color:var(--muted)}
+.story{columns:2 320px;column-gap:56px;margin:56px auto 0;max-width:980px;color:var(--muted);font-family:"Google Sans",var(--sans);font-weight:400}
 .story p{margin:0 0 18px;break-inside:avoid}
-.story p:first-child::first-letter{float:left;font:600 4.4em/.8 var(--serif);color:var(--velvet);padding:6px 10px 0 0}
+.story>p:first-child::first-letter{float:left;font:600 4.4em/.8 var(--serif);color:var(--velvet);padding:6px 10px 0 0}
+.story-more{display:contents}
+.story-more[hidden],.story-toggle[hidden]{display:none}
+.story-toggle{display:flex;width:fit-content;margin-inline:auto;align-items:center;gap:10px;min-height:44px;padding:8px 0;border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--velvet);font:500 14px/1.5 var(--sans);cursor:pointer}
+.story-toggle svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5}
+.story-toggle-less,.story-toggle[aria-expanded="true"] .story-toggle-more{display:none}
+.story-toggle[aria-expanded="true"] .story-toggle-less{display:inline}
+.story-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
 .stub{display:grid;grid-template-columns:repeat(4,1fr) auto;margin:64px auto 0;background:var(--night);color:var(--text);border-radius:14px;position:relative;
   -webkit-mask:radial-gradient(14px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(14px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
           mask:radial-gradient(14px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(14px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
@@ -168,7 +177,7 @@ strong,b{font-weight:600}
 .tier.is-on{background:linear-gradient(90deg,rgba(212,175,99,.16),rgba(212,175,99,.04));border-color:var(--gold)}
 .tier .nm{font:500 21px/1.15 var(--serif);white-space:nowrap}
 .tier .pr{font:600 21px/1 var(--serif);color:var(--gold-2);text-align:right;white-space:nowrap}
-.current{margin-top:16px;padding:20px 22px;border-radius:12px;background:linear-gradient(135deg,var(--velvet),var(--velvet-2));display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;box-shadow:0 24px 50px -24px rgba(122,20,38,.9)}
+.current{margin-top:16px;padding:20px 22px;border-radius:12px;background:linear-gradient(135deg,var(--velvet),var(--velvet-2));display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px;flex-wrap:wrap;box-shadow:0 24px 50px -24px rgba(122,20,38,.9)}
 .current small{display:block;font-size:11px;letter-spacing:.2em;color:var(--gold-2)}
 .current strong{font:500 24px/1.25 var(--serif)}
 .current strong span{display:block;font-size:18px;color:var(--gold-2)}
@@ -321,8 +330,8 @@ strong,b{font-weight:600}
 /* responsive */
 @media (max-width:1080px){
   .nav{display:none}
-  body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
-  .section-nav{position:fixed;inset:auto 0 0;z-index:60;display:grid;grid-template-columns:1fr 1fr 1.4fr 1fr 1fr .9fr;gap:2px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:rgba(10,19,40,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--hair)}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .section-nav{position:fixed;inset:auto 0 0;z-index:60;display:grid;grid-template-columns:1fr 1fr 1.4fr 1fr 1fr .9fr;gap:2px;padding:12px var(--nav-gutter) calc(12px + env(safe-area-inset-bottom));background:rgba(10,19,40,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--hair)}
   .section-nav a{display:grid;place-content:center;justify-items:center;gap:5px;min-height:48px;padding:4px 0;border-radius:4px;color:var(--dim);text-decoration:none;font:400 10px/1.25 var(--sans);text-align:center;white-space:nowrap}
   .section-nav svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
   .section-nav a.is-on{color:var(--gold-2);background:rgba(212,175,99,.12)}
@@ -337,7 +346,11 @@ strong,b{font-weight:600}
   .stub .go{grid-column:1/-1;border-left:0;border-top:2px dashed var(--hair)}
 }
 @media (max-width:760px){
-  body{font-size:15px}
+  :root{--nav-gutter:16px}
+  body{font-size:15px;padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+  .section-nav{padding-top:8px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+  .story{scroll-margin-top:84px}
+  .story-more{display:block}
   .venue-info .venue-photo{margin:24px 0;opacity:1;transform:none}
   .sm-mobile-level{display:flex;align-items:center;gap:12px;margin-bottom:12px;font:500 13px/1.4 var(--sans);letter-spacing:.02em;color:var(--text)}
   .sm-mobile-level::after{content:"";flex:1;height:1px;background:var(--hair)}
@@ -378,18 +391,15 @@ strong,b{font-weight:600}
   .artist small{font-size:9px;letter-spacing:.14em}
   .artist h3{font-size:32px;line-height:1.05;margin:8px 0 14px}
   .artist ul{font-size:12px;line-height:1.55;gap:6px}
-  .carousel-controls{display:grid;grid-template-columns:44px minmax(0,1fr) 44px 44px;align-items:center;gap:8px;margin-top:12px;color:var(--gold-2)}
+  .carousel-controls{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:8px;margin-top:12px;color:var(--gold-2)}
   .carousel-controls.is-light{color:var(--velvet)}
   .carousel-dots{grid-column:2;display:flex;align-items:center;justify-content:center;gap:2px}
   .carousel-controls button{display:grid;place-items:center;width:32px;height:44px;padding:0;border:0;background:transparent;color:inherit;cursor:pointer}
   .carousel-dot::before{content:"";display:block;width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.3;transition:opacity .2s,transform .2s}
   .carousel-dot[aria-current="true"]::before{opacity:1;transform:scale(1.3)}
-  .carousel-controls .carousel-arrow,.carousel-controls .carousel-toggle{width:44px;border:1px solid var(--hair);border-radius:50%}
-  .carousel-controls .carousel-toggle{grid-column:4}
-  .carousel-controls.is-light .carousel-arrow,.carousel-controls.is-light .carousel-toggle{border-color:rgba(122,20,38,.25)}
+  .carousel-controls .carousel-arrow{width:44px;border:1px solid var(--hair);border-radius:50%}
+  .carousel-controls.is-light .carousel-arrow{border-color:rgba(122,20,38,.25)}
   .carousel-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-  .carousel-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-  .carousel-toggle:disabled{opacity:.3;cursor:default}
   .venue .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .venue .btns .btn{min-width:0;padding:0 10px;font-size:11px;letter-spacing:.1em;white-space:nowrap}
   .film{display:block;columns:2;column-gap:12px}
@@ -462,9 +472,12 @@ strong,b{font-weight:600}
       </div>
       <div class="story reveal">
         <p>Đêm Giáng sinh, cô bé Masha được tặng một chú lính Event NUTCRACKER bằng gỗ. Khi đồng hồ điểm nửa đêm, phép màu bỗng đánh thức cả thế giới: cây thông vươn cao vút, những món đồ chơi sống dậy, cuộc chiến giữa thiện và ác bắt đầu, và cánh cửa dẫn vào vương quốc cổ tích mở ra.</p>
+        <div class="story-more" id="story-more">
         <p>Đến với TP.HCM từ Saint Petersburg, thành phố nơi kiệt tác lần đầu ra mắt, Nhà hát Ballet Quốc gia Saint Petersburg mang theo đầy đủ dàn diễn viên, hệ thống trang phục nguyên bản và những bối cảnh sân khấu hoành tráng. Với hơn 5.000 buổi biểu diễn tại hơn 45 quốc gia, vở diễn đã đưa câu chuyện Giáng sinh kỳ diệu đến với khán giả khắp thế giới.</p>
         <p>Đây là lựa chọn lý tưởng cho lần đầu đến với ballet, đủ sức làm say mê trẻ thơ và khơi dậy những rung động sâu lắng ở người lớn tuổi. Một buổi hẹn hò lãng mạn, một tối sum vầy bên gia đình, món quà của thời gian và những kỷ niệm đẹp.</p>
         <p>Hai giờ đồng hồ để gác lại những lo toan, diện bộ trang phục yêu thích và tận hưởng vẻ đẹp của sân khấu. Một buổi tối để tìm lại niềm háo hức và mang về một ký ức đáng nâng niu.</p>
+        </div>
+        <button class="story-toggle" type="button" aria-expanded="false" aria-controls="story-more" hidden><span class="story-toggle-more">Xem thêm</span><span class="story-toggle-less">Thu gọn</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
       </div>
       <div class="stub reveal" role="group" aria-label="Thông tin vé">
         <div><small>Ngày diễn</small><strong>22.12.2026</strong><span>Thứ Ba</span></div>
@@ -720,12 +733,33 @@ strong,b{font-weight:600}
 
 <script src="assets/seatmap-data.js"></script>
 <script src="assets/common.js?v=20261116-refinements-2"></script>
-<script src="assets/option-b-carousels.js?v=20261116-arrows-3"></script>
+<script src="assets/option-b-carousels.js?v=20261116-no-pause"></script>
 <script>
 NUT.init({colors:{
   vvip:'#D2394F', gold:'#E4BC62', silver:'#9AB0DE', bronze:'#DC9C7C', upper:'#62B8AA', economy:'#6F80A6',
   invited:'#1E2944', invitedLine:'#34415F', stage:'#7A1426', stageText:'#F1D594', label:'#6E7A96', rule:'#22305080'
 }});
+
+/* Collapse the longer introduction on phones; keep desktop columns intact. */
+(function(){
+  var story=document.querySelector('.story');
+  var more=document.getElementById('story-more');
+  var toggle=document.querySelector('.story-toggle');
+  var phone=matchMedia('(max-width:760px)');
+  var expanded=false;
+  function sync(){
+    more.hidden=phone.matches&&!expanded;
+    toggle.hidden=!phone.matches;
+    toggle.setAttribute('aria-expanded',String(!more.hidden));
+  }
+  toggle.addEventListener('click',function(){
+    expanded=!expanded;
+    sync();
+    if(!expanded&&story.getBoundingClientRect().top<84)story.scrollIntoView({block:'start',behavior:'instant'});
+  });
+  phone.addEventListener('change',sync);
+  sync();
+})();
 
 /* Keep the venue photo immediately below its title on phones. */
 (function(){
@@ -830,6 +864,6 @@ NUT.init({colors:{
   }else{visible=true;sync();}
 })();
 </script>
-<script src="assets/option-b-language.js?v=20261116-refinements-2"></script>
+<script src="assets/option-b-language.js?v=20261116-story-toggle"></script>
 </body>
 </html>
