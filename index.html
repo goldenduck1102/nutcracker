@@ -122,7 +122,7 @@ strong,b{font-weight:600}
 .quote{font:italic 500 clamp(26px,3.2vw,42px)/1.3 var(--serif);max-width:24ch;margin:26px auto 0;color:var(--ink)}
 .quote span{color:var(--velvet)}
 .story{columns:2 320px;column-gap:56px;margin:56px auto 0;max-width:980px;color:var(--muted);font-family:"Google Sans",var(--sans);font-weight:400}
-.story p{margin:0 0 18px;break-inside:avoid}
+.story p{text-align:justify;text-align-last:start;margin:0 0 18px;break-inside:avoid}
 .story>p:first-child::first-letter{float:left;font:600 4.4em/.8 var(--serif);color:var(--velvet);padding:6px 10px 0 0}
 .story-more{display:contents}
 .story-more[hidden],.story-toggle[hidden]{display:none}
@@ -290,19 +290,21 @@ strong,b{font-weight:600}
 .final .h2{max-width:18ch;margin:0 auto 36px}
 
 /* partners */
-.partners{padding:clamp(64px,8vw,96px) 0}
+.partners{padding:clamp(64px,8vw,96px) 0;background:var(--navy);color:var(--gold-2)}
 .partners h2{font:500 clamp(28px,3vw,40px) var(--serif);margin:0 0 40px;text-align:center}
-.p-rows{display:grid;gap:0;border-top:1px solid rgba(21,25,42,.12)}
-.p-row{display:grid;grid-template-columns:1fr;align-items:center;gap:16px;padding:22px 0;border-bottom:1px solid rgba(21,25,42,.12);text-align:center}
-.p-row small{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--velvet);font-weight:500}
-.p-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 44px}
-.p-logos img{height:44px;width:auto}
-.p-logos .tall{height:60px}
-.p-logos .ubnd{filter:invert(1) sepia(1) saturate(4) hue-rotate(-30deg) brightness(.55)}
-.p-logos .mul{mix-blend-mode:multiply}
-.p-logos .spbt{height:54px}
+.p-rows{display:grid;border-top:1px solid var(--hair)}
+.p-row{display:grid;align-items:center;gap:20px;padding:26px 0;border-bottom:1px solid var(--hair);text-align:center}
+.p-row small{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2);font-weight:500}
+.p-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:22px clamp(24px,4vw,52px)}
+.p-logos img{display:block;max-width:100%;width:auto;height:44px;object-fit:contain;filter:url(#partner-white)}
+.p-logos .tall{height:56px}
+.p-logos .spbt{height:50px}
 .p-logos .aurum{height:34px}
-
+.p-logos .two-tone{filter:url(#partner-duotone)}
+.partner-sponsors{display:grid;grid-template-columns:repeat(4,minmax(0,140px));justify-items:center}
+.partner-phela{display:grid;justify-items:center;gap:5px;color:#fff;font:500 14px/1.2 var(--sans)}
+.partner-phela img{height:36px}
+@media(max-width:560px){.partner-sponsors{grid-template-columns:repeat(2,minmax(0,120px))}}
 /* footer */
 .foot{background:#070D1D;color:var(--dim);padding:64px 0 30px;font-size:14px}
 .foot-grid{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:40px}
@@ -446,7 +448,7 @@ strong,b{font-weight:600}
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="pre">Nhà Hát Hòa Bình</p>
-        <h1>NUTCRACKER<i>Ballet Giáng sinh</i></h1>
+        <h1>NUTCRACKER<i>Ballet mùa Giáng Sinh - Kẹp Hạt Dẻ</i></h1>
         <div class="meta">
           <div><small>Ngày</small><strong>22.12.2026</strong></div>
           <div><small>Giờ</small><strong>20:00</strong></div>
@@ -678,20 +680,30 @@ strong,b{font-weight:600}
   </section>
 
   <!-- PARTNERS -->
-  <section class="partners light" aria-labelledby="t-partners">
+  <section id="doi-tac" class="partners" aria-labelledby="t-partners">
     <div class="wrap">
+      <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+        <filter id="partner-white" color-interpolation-filters="sRGB">
+          <feFlood flood-color="#ffffff"/><feComposite in2="SourceGraphic" operator="in"/>
+        </filter>
+        <filter id="partner-duotone" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 -2.6 1 1.6"/>
+          <feComposite in2="SourceGraphic" operator="in"/>
+        </filter>
+      </defs></svg>
       <h2 id="t-partners">Đơn vị đồng hành</h2>
       <div class="p-rows">
-        <div class="p-row"><small>Sponsored by</small><div class="p-logos">
-          <img src="assets/logos/katinat.png" alt="Katinat" loading="lazy"><img src="assets/logos/phela.png" alt="Phê La" class="tall" loading="lazy"><img src="assets/logos/lof.png" alt="LOF" class="tall" loading="lazy"></div></div>
+        <div class="p-row"><small>Sponsored by</small><div class="p-logos partner-sponsors">
+          <img src="assets/logos/vietcap.svg" alt="Vietcap" loading="lazy">
+          <img src="assets/logos/katinat.png" alt="Katinat" loading="lazy"><span class="partner-phela"><img src="assets/logos/phela.png" alt="" loading="lazy"><span>Phê La</span></span><img src="assets/logos/lof.png" alt="LOF" class="tall two-tone" loading="lazy"></div></div>
         <div class="p-row"><small>Operated by</small><div class="p-logos">
           <img src="assets/logos/impressivo.png" alt="Impressivo Production &amp; Enterprise" loading="lazy"><img src="assets/logos/spbt.png" alt="Saint Petersburg National Ballet Theatre" class="spbt" loading="lazy"></div></div>
         <div class="p-row"><small>Managed by</small><div class="p-logos">
-          <img src="assets/logos/aurum.svg" alt="Aurum Entertainment" class="aurum" loading="lazy"><img src="assets/logos/spo.jpg" alt="Saigon Philharmonic Orchestra" class="tall mul" loading="lazy"></div></div>
+          <img src="assets/logos/aurum.svg" alt="Aurum Entertainment" class="aurum" loading="lazy"><img src="assets/logos/spo.jpg" alt="Saigon Philharmonic Orchestra" class="tall two-tone" loading="lazy"></div></div>
         <div class="p-row"><small>Supported by</small><div class="p-logos">
           <img src="assets/logos/ubnd-hcm.svg" alt="UBND TP. Hồ Chí Minh" class="tall ubnd" loading="lazy"><img src="assets/logos/vcma.png" alt="Hội Nhạc cổ điển Việt Nam" loading="lazy"></div></div>
         <div class="p-row"><small>Ticketed by</small><div class="p-logos">
-          <img src="assets/logos/orchestars-dark.png" alt="OrcheStars" style="height:26px" loading="lazy"></div></div>
+          <img src="assets/logos/orchestars-dark.png" alt="OrcheStars" style="height:52px" loading="lazy"></div></div>
       </div>
     </div>
   </section>
@@ -864,6 +876,6 @@ NUT.init({colors:{
   }else{visible=true;sync();}
 })();
 </script>
-<script src="assets/option-b-language.js?v=20261116-story-toggle"></script>
+<script src="assets/option-b-language.js?v=20261117-hazel"></script>
 </body>
 </html>
