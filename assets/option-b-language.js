@@ -11,7 +11,7 @@
     'Vở diễn': 'The ballet', 'Hạng vé': 'Tickets', 'Chương trình': 'Programme',
     'Nghệ sĩ': 'Artists', 'Địa điểm': 'Venue', 'Hỏi đáp': 'FAQs',
     'Mua vé': 'Buy tickets', 'Nhà Hát Hòa Bình': 'Hoa Binh Theatre',
-    'Ballet mùa Giáng Sinh - Kẹp Hạt Dẻ': 'Christmas Ballet - The Nutcracker', 'Ngày': 'Date', 'Giờ': 'Time',
+    'Ballet mùa Giáng Sinh': 'Christmas Ballet', 'Kẹp Hạt Dẻ': 'The Nutcracker', 'Ngày': 'Date', 'Giờ': 'Time',
     'Nhà hát': 'Theatre', 'Hòa Bình': 'Hoa Binh', 'Đặt vé ngay': 'Book now',
     'Xem sơ đồ ghế': 'View seating plan', 'CUỘN XUỐNG': 'SCROLL DOWN',
     'Về vở diễn': 'About the ballet', 'Khi đồng hồ': 'When the clock',
