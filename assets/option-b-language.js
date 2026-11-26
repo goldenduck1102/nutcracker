@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   var copy = {
+    'Đóng thông báo': 'Dismiss announcement',
     'Ưu đãi EarlyBird': 'Early Bird offer',
     'Ưu đãi': 'Special', 'Ưu đãi Early Bird giảm 15%': '15% off Early Bird',
     'Sự kiện từ OrcheStars': 'An OrcheStars event',
