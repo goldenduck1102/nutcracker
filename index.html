@@ -53,7 +53,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 html.lb-open{overflow:hidden}
-body{margin:0;background:var(--night);color:var(--text);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--night);color:var(--text);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:4px}
@@ -93,7 +93,7 @@ strong,b{font-weight:600}
 .btn-velvet:hover{background:var(--velvet-3)}
 
 /* header */
-.hdr{position:fixed;inset:0 0 auto;z-index:50;background:rgba(10,19,40,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--hair);transition:padding .35s;padding:18px 0}
+.hdr{position:sticky;inset:0 0 auto;z-index:50;background:rgba(10,19,40,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--hair);transition:padding .35s;padding:18px 0}
 .hdr.is-scrolled{padding:10px 0}
 .hdr .wrap{width:min(var(--wrap),100% - 2 * var(--nav-gutter));display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand img{height:32px;width:auto}
@@ -550,18 +550,18 @@ strong,b{font-weight:600}
   </script>
 <style>
 /* TTC recommendation · khung poster */
-.ttc-rec{position:relative;padding:clamp(56px,7vw,96px) 0;background:var(--night);border-top:1px solid var(--hair)}
+.ttc-rec{position:relative;text-align:center;padding:clamp(56px,7vw,96px) 0;background:#f5eddd;border-top:1px solid var(--hair)}
 .ttc-rec img{display:block;width:100%;height:auto}
-.ttc-rec h2{font:500 clamp(30px,3.4vw,46px)/1.08 var(--serif);margin:0;color:var(--ivory)}
-.ttc-rec h2 em{font-style:italic;color:var(--gold-2)}
-.ttc-rec .eyebrow{margin-bottom:16px}
-.ttc-rec .btn svg{width:18px;height:18px}
+.ttc-rec h2{font:500 clamp(30px,3.4vw,46px)/1.08 var(--serif);margin:0;color:var(--night)}
+.ttc-rec h2 em{font-style:italic;color:#806329}
+.ttc-rec .eyebrow{margin-bottom:16px;color:#715522}
+.ttc-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
 .ttc-media{display:block;overflow:hidden;background:#1a0a0d}
 .ttc-media img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 @media (max-width:760px){.ttc-rec .btn{width:100%}}
 .ttc-rec .eyebrow{justify-content:center}
 .ttc-rec .eyebrow::before{content:"";width:56px;height:1px;background:var(--gold)}
-.ttc-rec{text-align:center;background:radial-gradient(ellipse 70% 60% at 50% 55%,rgba(122,20,38,.45),transparent 70%),var(--night)}
+.ttc-actions .btn-line{border-color:#806329;color:#674c1c}
 .ttc-rec h2{margin-bottom:clamp(28px,3vw,40px)}
 .ttc-frame{position:relative;max-width:920px;margin:0 auto;padding:clamp(8px,1vw,12px);border:1px solid var(--hair);background:linear-gradient(180deg,rgba(241,213,148,.08),rgba(241,213,148,.02))}
 .ttc-offer{position:absolute;z-index:2;left:-30px;top:-24px;display:flex;align-items:stretch;background:linear-gradient(180deg,var(--gold-2),var(--gold));color:var(--night);border-radius:4px;filter:drop-shadow(0 12px 14px rgba(0,0,0,.55));transform:rotate(-5deg);-webkit-mask:radial-gradient(circle 7px at 0 50%,#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 97%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 7px at 0 50%,#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 97%,#000) right/51% 100% no-repeat}
@@ -580,18 +580,20 @@ strong,b{font-weight:600}
 .ttc-facts dt{font:600 11px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#534b43}
 .ttc-facts dd{margin:5px 0 0;font:600 22px/1.25 var(--serif)}
 @media(max-width:760px){.ttc-facts{grid-template-columns:1fr}.ttc-facts div{padding:12px 18px}.ttc-facts div+div{border-left:0;border-top:1px dashed #b8b1a8}}
-.ttc-panel{position:relative;display:block;margin-top:80px;background:var(--navy);border-block:1px solid var(--hair);color:var(--text);text-align:center;text-decoration:none;font:400 14px/1.4 var(--sans)}
+.ttc-panel{position:relative;display:block;background:var(--navy);border-block:1px solid var(--hair);color:var(--text);text-align:center;text-decoration:none;font:400 14px/1.4 var(--sans)}
 .ttc-panel strong{font-weight:500;color:var(--gold-2)}
 .ttc-panel a{display:block;padding:6px 44px;color:inherit;text-decoration:none}
 .ttc-panel-close{position:absolute;inset:0 4px 0 auto;width:36px;display:grid;place-items:center;padding:0;border:0;background:transparent;color:var(--gold-2);cursor:pointer}
 .ttc-panel a:hover .panel-cta,.ttc-panel a:focus-visible .panel-cta{text-decoration:underline;text-underline-offset:3px}
 .ttc-panel[hidden]{display:none}
-.ttc-panel:not([hidden]) + .hero{padding-top:40px;min-height:calc(100svh - 112px)}
-@media(max-width:760px){.ttc-panel{margin-top:64px;font-size:13px}.ttc-panel:not([hidden]) + .hero{padding-top:32px;min-height:auto}}
+.hero{padding-top:40px;min-height:calc(100svh - 112px)}
+@media(max-width:760px){.ttc-panel{font-size:13px}.hero{padding-top:32px;min-height:auto}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Đến nội dung chính</a>
+
+<div class="ttc-panel" hidden><a href="https://www.orchestars.vn/events/ttc26/6ad9d5b53fda5c000821ff8f/select-ticket"><strong>Upcoming Show</strong> · Hẹn bạn tại đêm hòa nhạc Giáng sinh <strong>A Tale of Two Christmases 2026</strong>. <strong class="panel-cta">Đặt vé Early Bird giảm 15%</strong> <strong aria-hidden="true">→</strong></a><button type="button" class="ttc-panel-close" aria-label="Đóng thông báo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"/></svg></button></div>
 
 <header class="hdr" data-hdr>
   <div class="wrap">
@@ -607,7 +609,6 @@ strong,b{font-weight:600}
 </header>
 
 <main id="main">
-  <div class="ttc-panel" hidden><a href="https://www.orchestars.vn/events/ttc26/6ad9d5b53fda5c000821ff8f/select-ticket"><strong>Upcoming Show</strong> · Hẹn bạn tại đêm hòa nhạc Giáng sinh <strong>A Tale of Two Christmases 2026</strong>. <strong class="panel-cta">Đặt vé Early Bird giảm 15%</strong> <strong aria-hidden="true">→</strong></a><button type="button" class="ttc-panel-close" aria-label="Đóng thông báo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"/></svg></button></div>
   <!-- HERO -->
   <section class="hero" id="top" data-hero>
     <div class="valance" aria-hidden="true"></div>
@@ -885,13 +886,16 @@ strong,b{font-weight:600}
     <div class="wrap">
       <p class="eyebrow">Sự kiện từ OrcheStars</p>
       <h2 id="ttc-recommendations">Có thể bạn <em>cũng thích</em></h2>
-      <div class="ttc-frame"><span class="ttc-offer" hidden data-expires-at="2026-11-27T00:00:00+07:00" aria-label="Ưu đãi Early Bird giảm 15%"><span class="l">Ưu đãi<br>Early Bird</span><strong>−15%</strong></span><a class="ttc-media ttc_xem_chuong_trinh" href="https://www.orchestars.vn/ttc2026" target="_blank" rel="noopener" tabindex="-1"><img src="./assets/img/ttc/ttc-wide-1942.webp" width="1942" height="720" loading="lazy" decoding="async" alt="Banner sự kiện A Tale of Two Christmases 2026"></a></div>
+      <div class="ttc-frame"><span class="ttc-offer" hidden data-expires-at="2026-11-27T00:00:00+07:00" aria-label="Ưu đãi Early Bird giảm 15%"><span class="l">Ưu đãi<br>Early Bird</span><strong>−15%</strong></span><a class="ttc-media ttc_xem_chuong_trinh" href="https://www.orchestars.vn/ttc2026" target="_blank" rel="noopener" tabindex="-1"><img src="./assets/img/ttc/ttc-banner-1920.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Banner sự kiện A Tale of Two Christmases 2026"></a></div>
       <dl class="ttc-facts">
         <div><dt>Ngày tổ chức</dt><dd><time datetime="2026-12-19">19/12/2026</time> &amp; <time datetime="2026-12-20">20/12/2026</time></dd></div>
         <div><dt>Suất diễn</dt><dd>17:30 · 20:00</dd></div>
         <div><dt>Địa điểm</dt><dd>Renaissance Riverside Sài Gòn</dd></div>
       </dl>
-      <a class="btn btn-gold ttc_xem_chuong_trinh" href="https://www.orchestars.vn/ttc2026" target="_blank" rel="noopener">Xem chương trình <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="ttc-actions">
+        <a class="btn btn-line ttc_xem_chuong_trinh" href="https://www.orchestars.vn/ttc2026" target="_blank" rel="noopener">Xem chương trình</a>
+        <a class="btn btn-gold" href="https://www.orchestars.vn/events/ttc26/6ad9d5b53fda5c000821ff8f/select-ticket" target="_blank" rel="noopener">Đặt vé TTC 2026</a>
+      </div>
     </div>
   </section>
 </main>
@@ -1086,7 +1090,7 @@ NUT.init({colors:{
   }else{visible=true;sync();}
 })();
 </script>
-<script src="./assets/option-b-language.js?v=20261126-upcoming-invite"></script>
+<script src="./assets/option-b-language.js?v=20261126-ttc-actions"></script>
 
     <!-- Zalo Chat Widget -->
     <div

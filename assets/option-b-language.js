@@ -20,7 +20,7 @@
     '· Hẹn bạn tại đêm hòa nhạc Giáng sinh': '· Join us for the Christmas concert',
     'Đặt vé Early Bird giảm 15%': 'Book Early Bird tickets with 15% off',
     'Xem ngay!': 'Explore now!',
-    'Có thể bạn cũng thích': 'You may also like', 'Có thể bạn': 'You may', 'cũng thích': 'also like', 'Cũng từ OrcheStars': 'Also from OrcheStars', 'Xem chương trình': 'View programme',
+    'Có thể bạn cũng thích': 'You may also like', 'Có thể bạn': 'You may', 'cũng thích': 'also like', 'Cũng từ OrcheStars': 'Also from OrcheStars', 'Xem chương trình': 'View programme', 'Đặt vé TTC 2026': 'Book TTC 2026 tickets',
     'Banner sự kiện A Tale of Two Christmases 2026': 'Event banner for A Tale of Two Christmases 2026',
     'Suất': 'Shows', 'Nơi': 'Venue', '18:00 & 20:30 mỗi ngày': '18:00 & 20:30 daily',
     'Thêm một đêm nhạc': 'One more evening of music', 'mùa Giáng sinh': 'this Christmas',
