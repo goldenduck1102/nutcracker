@@ -17,8 +17,8 @@
     'Vở diễn': 'The ballet', 'Hạng vé': 'Tickets', 'Chương trình': 'Programme',
     'Nghệ sĩ': 'Artists', 'Địa điểm': 'Venue', 'Hỏi đáp': 'FAQs',
     /* TTC cross-promo (ttc-option-1..3) */
-    'Sự kiện Giáng sinh': 'Christmas event',
-    'siêu hấp dẫn đang có ưu đãi Early Bird giảm 15%.': 'is now offering 15% off Early Bird tickets.',
+    '· Hẹn bạn tại đêm hòa nhạc Giáng sinh': '· Join us for the Christmas concert',
+    'Đặt vé Early Bird giảm 15%': 'Book Early Bird tickets with 15% off',
     'Xem ngay!': 'Explore now!',
     'Có thể bạn cũng thích': 'You may also like', 'Có thể bạn': 'You may', 'cũng thích': 'also like', 'Cũng từ OrcheStars': 'Also from OrcheStars', 'Xem chương trình': 'View programme',
     'Banner sự kiện A Tale of Two Christmases 2026': 'Event banner for A Tale of Two Christmases 2026',
