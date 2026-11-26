@@ -93,8 +93,9 @@ strong,b{font-weight:600}
 .btn-velvet:hover{background:var(--velvet-3)}
 
 /* header */
-.hdr{position:sticky;inset:0 0 auto;z-index:50;background:rgba(10,19,40,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--hair);transition:padding .35s;padding:18px 0}
-.hdr.is-scrolled{padding:10px 0}
+.hdr{position:sticky;inset:0 0 auto;z-index:50;background:rgba(10,19,40,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--hair)}
+.hdr .wrap{transition:padding .35s;padding:18px 0}
+.hdr.is-scrolled .wrap{padding:10px 0}
 .hdr .wrap{width:min(var(--wrap),100% - 2 * var(--nav-gutter));display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand img{height:32px;width:auto}
 .nav{display:flex;gap:28px}
@@ -384,7 +385,7 @@ strong,b{font-weight:600}
   .sm-mobile-level-second{position:absolute;inset:calc(56.2% - 8px) 0 auto;transform:translateY(-50%);margin:0;pointer-events:none}
   .sm-mobile-level[hidden]{display:none}
   .sm-floor,.sm-floor-rule,.sm-rows{display:none}
-  .hdr{padding:12px 0}
+  .hdr .wrap{padding:12px 0}
   .hdr .wrap{gap:10px}
   .hdr-r{gap:8px}
   .brand{min-width:0}
@@ -593,8 +594,6 @@ strong,b{font-weight:600}
 <body>
 <a class="skip" href="#main">Đến nội dung chính</a>
 
-<div class="ttc-panel" hidden><a href="https://www.orchestars.vn/events/ttc26/6ad9d5b53fda5c000821ff8f/select-ticket"><strong>Upcoming Show</strong> · Hẹn bạn tại đêm hòa nhạc Giáng sinh <strong>A Tale of Two Christmases 2026</strong>. <strong class="panel-cta">Đặt vé Early Bird giảm 15%</strong> <strong aria-hidden="true">→</strong></a><button type="button" class="ttc-panel-close" aria-label="Đóng thông báo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"/></svg></button></div>
-
 <header class="hdr" data-hdr>
   <div class="wrap">
     <a class="brand" href="https://www.orchestars.vn/" aria-label="Trang chủ OrcheStars"><img src="./assets/logos/orchestars-gold.png" alt="OrcheStars" width="129" height="24"></a>
@@ -606,6 +605,7 @@ strong,b{font-weight:600}
       <a class="btn btn-gold mua_ve_ngay" href="https://www.orchestars.vn/events/nutcracker26/6af543e51a7f2a57180cb410/select-ticket" target="_blank" rel="noopener">Mua vé</a>
     </div>
   </div>
+  <div class="ttc-panel" hidden><a href="https://www.orchestars.vn/events/ttc26/6ad9d5b53fda5c000821ff8f/select-ticket"><strong>Upcoming Show</strong> · Hẹn bạn tại đêm hòa nhạc Giáng sinh <strong>A Tale of Two Christmases 2026</strong>. <strong class="panel-cta">Đặt vé Early Bird giảm 15%</strong> <strong aria-hidden="true">→</strong></a><button type="button" class="ttc-panel-close" aria-label="Đóng thông báo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"/></svg></button></div>
 </header>
 
 <main id="main">
